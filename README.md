@@ -1,5 +1,9 @@
 # Popular libraries using on Ubuntu
-## 1. OpenCV
+## 1. Anaconda
+Install on Ubuntu 20.04. For installing Anaconda, we have lots of specific guides on the internet. I recommend the article of Linuxize:   
+https://linuxize.com/post/how-to-install-anaconda-on-ubuntu-20-04/
+
+## 2. OpenCV
 Install on Ubuntu 20.04
 ```
 sudo apt update
@@ -28,4 +32,4 @@ At the end of file. Type the command and then Save. <strong>DONE</strong>
 ```
 alias python=python3.8
 ```
-## 2. TensorFlow
+## 3. TensorFlow
