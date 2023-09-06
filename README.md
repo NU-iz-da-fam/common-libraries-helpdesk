@@ -11,8 +11,7 @@ To solve this, check your python version first. Open terminal.
 ```
 python3 --version
 ```
-Check the python version supported by OpenCV using the command below. If there are more than 1 python version, maybe your opencv    
-was installed with the left python version.
+Check the python version supported by OpenCV using the command below. If there are more than 1 python version, maybe your opencv was installed with the left python version.
 ```
 ls /usr/bin/python*
 ```
@@ -25,7 +24,7 @@ If you use OpenCV many times, you will need to set python version supported by O
 ```
 sudo gedit ~/.bashrc
 ```
-At the end of file. Type the command and then save
+At the end of file. Type the command and then Save. <strong>DONE</strong>
 ```
 alias python=python3.8
 ```
