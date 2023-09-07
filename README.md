@@ -1,8 +1,22 @@
 # Popular libraries using on Ubuntu
 ## 1. Anaconda
 Install on Ubuntu 20.04. For installing Anaconda, we have lots of specific guides on the internet. I recommend the article of Linuxize:   
-https://linuxize.com/post/how-to-install-anaconda-on-ubuntu-20-04/
-
+https://linuxize.com/post/how-to-install-anaconda-on-ubuntu-20-04/   
+After installation, refer to check the conda version to make sure successful installation:   
+```
+conda -V
+```
+### Create, activate/deactivate virtual env with anaconda
+```
+conda create -n envname python=3.8 scipy=0.15.0 
+```
+- Choose python version suit your demand.
+- 'spicy' reprents other packages we want to install in virtual env.
+```
+conda activate envname
+conda deactivate
+```
+ 
 ## 2. OpenCV
 Install on Ubuntu 20.04
 ```
