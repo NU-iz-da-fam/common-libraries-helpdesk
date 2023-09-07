@@ -47,3 +47,6 @@ At the end of file. Type the command and then Save. <strong>DONE</strong>
 alias python=python3.8
 ```
 ## 3. TensorFlow
+Of courses, we should refer the official link on tensorflow website. In this guideline, try to solve some problems facing after installation.   
+Link: https://www.tensorflow.org/install/pip
+#### libdevice not found at ./libdevice.10.bc
