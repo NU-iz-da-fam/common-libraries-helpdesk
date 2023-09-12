@@ -53,7 +53,7 @@ alias python=python3.8
 ## 3. TensorFlow
 Of courses, we should refer the official link on tensorflow website. In this guideline, try to solve some problems facing after installation.   
 Link: https://www.tensorflow.org/install/pip   
-To check if tensorflow is installed properly, use the command below. Just make sure you use the correct python version.
+- To check if tensorflow is installed properly, use the command below. Just make sure you use the correct python version.
 ```
 python3.8 -c "import tensorflow as tf; print(tf.__version__)"
 ```
@@ -68,6 +68,35 @@ whereis cuda
 ```
 sudo cp [cuda_nvvm_dir] [your_current_working_dir]
 ```
+- Check Cuda Toolkit version
+```
+nvcc --version
+```
 For reference link: https://stackoverflow.com/questions/72499414/i-got-an-error-about-error-cant-find-libdevice-directory-cuda-dir-nvvm-libd   
 ## 4. PyTorch 
-For your reference, I recommend this link: https://varhowto.com/install-pytorch-cuda-10-2/   
+For your reference, I recommend this link: https://varhowto.com/install-pytorch-cuda-10-2/    
+After installation, you should check the if Pytorch has been successfully installed
+```
+python -c "import torch; print(torch.__version__); print(torch.rand(6, 4))"
+```
+- Check Torch Version
+```
+torch.version.cuda
+```
+- Check Cuda is available
+```
+torch.cuda.is_available()
+```
+- Check supported arch list
+```
+torch.cuda.get_arch_list()
+```
+#### Error: Cuda error: no kernel image is available for execution on the device   
+If this error comes follow a warning: <strong>GPU with CUDA capability sm_86 is not compatible with the current PyTorch installation.</strong> which mean that your pyTorch version needs to be updated. Perhaps it is too old and not compatible with new GPU computation.   
+To solve this, check https://pytorch.org/get-started/locally/ to install newer version of PyTorch. Or you can try directly the below command:
+```
+conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+```
+Then run your program again. This worked in my case.   
+- Another solution is to create again for env with correct python, pip version or update the requirements file. Some of them are outdated or deprecated and need to be udpated with newer version.
+
