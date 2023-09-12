@@ -16,6 +16,10 @@ conda create -n envname python=3.8 scipy=0.15.0
 conda activate envname
 conda deactivate
 ```
+### Check conda environments
+```
+conda info --envs
+```
  
 ## 2. OpenCV
 Install on Ubuntu 20.04
