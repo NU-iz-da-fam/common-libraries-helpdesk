@@ -65,3 +65,5 @@ whereis cuda
 sudo cp [cuda_nvvm_dir] [your_current_working_dir]
 ```
 For reference link: https://stackoverflow.com/questions/72499414/i-got-an-error-about-error-cant-find-libdevice-directory-cuda-dir-nvvm-libd   
+## 4. PyTorch 
+For your reference, I recommend this link: https://varhowto.com/install-pytorch-cuda-10-2/   
