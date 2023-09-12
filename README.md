@@ -1,4 +1,4 @@
-# Popular libraries using on Ubuntu
+# AI Libraries Helpdesk with typical errors when setting up.
 ## 1. Anaconda
 Install on Ubuntu 20.04. For installing Anaconda, we have lots of specific guides on the internet. I recommend the article of Linuxize:   
 https://linuxize.com/post/how-to-install-anaconda-on-ubuntu-20-04/   
@@ -11,7 +11,7 @@ conda -V
 conda create -n envname python=3.8 scipy=0.15.0 
 ```
 - Choose python version suit your demand.
-- 'spicy' reprents other packages we want to install in virtual env.
+- 'spicy' represents other packages we want to install in virtual environment.
 ```
 conda activate envname
 conda deactivate
@@ -28,8 +28,7 @@ sudo apt update
 sudo apt install libopencv-dev python3-opencv
 ```
 After installing, if default python version and python version supported by OpenCV are different, this will lead to a problem   
-<strong>ModuleNotFoundError: No module named 'cv2' </strong>.  
-To solve this, check your python version first. Open terminal.
+<strong>Error: ModuleNotFoundError: No module named 'cv2' </strong>. To solve this, check your python version first. Open terminal.
 ```
 python3 --version
 ```
@@ -42,7 +41,7 @@ In this case, test with other python version, assumed we have version 3.8. Use b
 python3.8 -c "import cv2; print(cv2.__version__)"
 ```
 #### Alias to set specific python version as default
-If you use OpenCV many times, you will need to set python version supported by OpenCV as default. To do this with example <strong>python3.8</strong>, open .bashrc
+If you use OpenCV many times, you will need to set python version supported by OpenCV as default. To do this with example <strong>python3.8</strong>, open .bashrc file
 ```
 sudo gedit ~/.bashrc
 ```
@@ -79,7 +78,7 @@ After installation, you should check the if Pytorch has been successfully instal
 ```
 python -c "import torch; print(torch.__version__); print(torch.rand(6, 4))"
 ```
-- Check Torch Version
+- Check torch version
 ```
 torch.version.cuda
 ```
