@@ -13,6 +13,7 @@ conda create -n envname python=3.7 scipy=0.15.0
 ```
 - Choose python version suit your demand.
 - 'spicy' represents other packages we want to install in virtual environment.
+
 b. Activate/Deactivate conda env
 ```
 conda activate envname
