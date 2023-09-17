@@ -49,6 +49,17 @@ At the end of file. Type the command and then Save. <strong>DONE</strong>
 ```
 alias python=python3.8
 ```
+- If installing OpenCV with Anaconda, should consider combination of python3.7 and openCV version 3.4.2. Because python3.8 faces the error <strong>CV2:ModuleNotFound</strong>.
+- You could check directly here: https://saturncloud.io/blog/anaconda-solving-the-cannot-import-cv2-issue-even-though-opencv-is-installed-how-to-install-opencv3-for-python3/
+```
+conda create -n opencv_env python=3.7
+conda activate opencv_env
+```
+```
+conda install -c conda-forge opencv=3.4.2
+python3.7 -c "import cv2; print(cv2.__version__)"
+```
+
 ## 3. TensorFlow
 Of courses, we should refer the official link on tensorflow website. In this guideline, try to solve some problems facing after installation.   
 Link: https://www.tensorflow.org/install/pip   
