@@ -6,21 +6,28 @@ After installation, refer to check the conda version to make sure successful ins
 ```
 conda -V
 ```
-### Create, activate/deactivate virtual env with anaconda
+### Create, activate/deactivate, remove, list virtual envs with anaconda
+a. Create conda env
 ```
-conda create -n envname python=3.8 scipy=0.15.0 
+conda create -n envname python=3.7 scipy=0.15.0 
 ```
 - Choose python version suit your demand.
 - 'spicy' represents other packages we want to install in virtual environment.
+b. Activate/Deactivate conda env
 ```
 conda activate envname
 conda deactivate
 ```
-### Check conda environments
+c. Remove conda env
+```
+conda remove -n envname --all
+```
+d. List conda environments
 ```
 conda info --envs
 ```
- 
+![alt text](images/envs.png "virtual environment")   
+From now on, I highly recommend you create a virtual anaconda envs in each project
 ## 2. OpenCV
 Install on Ubuntu 20.04
 ```
@@ -36,20 +43,20 @@ Check the python version supported by OpenCV using the command below. If there a
 ```
 ls /usr/bin/python*
 ```
-In this case, test with other python version, assumed we have version 3.8. Use below command and you will see OpenCV version. 
+In this case, test with other python version, assumed we have version 3.7. Use below command and you will see OpenCV version. 
 ```
-python3.8 -c "import cv2; print(cv2.__version__)"
+python3.7 -c "import cv2; print(cv2.__version__)"
 ```
 #### Alias to set specific python version as default
-If you use OpenCV many times, you will need to set python version supported by OpenCV as default. To do this with example <strong>python3.8</strong>, open .bashrc file
+If you use OpenCV many times, you will need to set python version supported by OpenCV as default. To do this with example <strong>python3.7</strong>, open .bashrc file
 ```
 sudo gedit ~/.bashrc
 ```
 At the end of file. Type the command and then Save. <strong>DONE</strong>
 ```
-alias python=python3.8
+alias python=python3.7
 ```
-- If installing OpenCV with Anaconda, should consider combination of python3.7 and openCV version 3.4.2. Because python3.8 faces the error <strong>CV2:ModuleNotFound</strong>.
+If installing OpenCV with Anaconda, should consider combination of python3.7 and openCV version 3.4.2. Because python3.8 faces the error <strong>CV2:ModuleNotFound</strong>.
 - You could check directly here: https://saturncloud.io/blog/anaconda-solving-the-cannot-import-cv2-issue-even-though-opencv-is-installed-how-to-install-opencv3-for-python3/
 ```
 conda create -n opencv_env python=3.7
@@ -57,6 +64,9 @@ conda activate opencv_env
 ```
 ```
 conda install -c conda-forge opencv=3.4.2
+```
+- Check if openCV has been installed properly.   
+```
 python3.7 -c "import cv2; print(cv2.__version__)"
 ```
 
@@ -103,6 +113,7 @@ torch.cuda.get_arch_list()
 ```
 #### Error: Cuda error: no kernel image is available for execution on the device   
 If this error comes follow a warning: <strong>GPU with CUDA capability sm_86 is not compatible with the current PyTorch installation.</strong> which mean that your pyTorch version needs to be updated. Perhaps it is too old and not compatible with new GPU computation.   
+![alt text](images/start_locally.png "start locally")      
 To solve this, check https://pytorch.org/get-started/locally/ to install newer version of PyTorch. Or you can try directly the below command:
 ```
 conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
