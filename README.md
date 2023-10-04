@@ -12,7 +12,7 @@ a. Create conda env
 conda create -n envname python=3.7 scipy=0.15.0 
 ```
 - Choose python version suit your demand.
-- 'spicy' represents other packages we want to install in virtual environment.
+- 'scipy' represents other packages we want to install in virtual environment.
 
 b. Activate/Deactivate conda env
 ```
@@ -57,14 +57,14 @@ At the end of file. Type the command and then Save. <strong>DONE</strong>
 ```
 alias python=python3.7
 ```
-If installing OpenCV with Anaconda, should consider combination of python3.7 and openCV version 3.4.2. Because python3.8 faces the error <strong>CV2:ModuleNotFound</strong>.
+If installing OpenCV with Anaconda, should consider combination of python3.7 and openCV. Because python3.8 faces the error <strong>CV2:ModuleNotFound</strong>.
 - You could check directly here: https://saturncloud.io/blog/anaconda-solving-the-cannot-import-cv2-issue-even-though-opencv-is-installed-how-to-install-opencv3-for-python3/
 ```
 conda create -n opencv_env python=3.7
 conda activate opencv_env
 ```
 ```
-conda install -c conda-forge opencv=3.4.2
+conda install -c conda-forge opencv 
 ```
 - Check if openCV has been installed properly.   
 ```
