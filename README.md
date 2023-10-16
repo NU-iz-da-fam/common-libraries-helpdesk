@@ -57,7 +57,7 @@ At the end of file. Type the command and then Save. <strong>DONE</strong>
 ```
 alias python=python3.7
 ```
-If installing OpenCV with Anaconda, should consider combination of python3.7 and openCV. Because python3.8 faces the error <strong>CV2:ModuleNotFound</strong>.
+If installing OpenCV with Anaconda, should consider combination of python3.7 and openCV. Because sometimes, python3.8 faces the error <strong>CV2:ModuleNotFound</strong>.
 - You could check directly here: https://saturncloud.io/blog/anaconda-solving-the-cannot-import-cv2-issue-even-though-opencv-is-installed-how-to-install-opencv3-for-python3/
 ```
 conda create -n opencv_env python=3.7
@@ -115,10 +115,10 @@ torch.cuda.get_arch_list()
 #### Error: Cuda error: no kernel image is available for execution on the device   
 If this error comes follow a warning: <strong>GPU with CUDA capability sm_86 is not compatible with the current PyTorch installation.</strong> which mean that your pyTorch version needs to be updated. Perhaps it is too old and not compatible with new GPU computation.   
 ![alt text](images/start_locally.png "start locally")      
-To solve this, check https://pytorch.org/get-started/locally/ to install newer version of PyTorch. Or you can try directly the below command:
+To solve this, check https://pytorch.org/get-started/locally/ to install newer version of PyTorch. Or you can try directly the below command if you are working with conda:
 ```
 conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
 ```
-Then run your program again. This worked in my case.   
+You could also use <strong>pip, libtorch or source </strong> up to your requirement. Then rerun your program. This worked in my case.  
 - Another solution is to create again for env with correct python, pip version or update the requirements file. Some of them are outdated or deprecated and need to be udpated with newer version.
 
