@@ -1,5 +1,15 @@
-# AI Libraries Helpdesk with typical errors when setting up.
+# Common Libraries Helpdesk with typical errors when setting up.
 ## 1. Anaconda
+### Pros and Cons
+a. Pros:
+- Easy to install packages
+- AI/ML oriented
+- Isolated environment for each project.
+
+b. Cons:
+- Take lots of disk space
+
+### Installation
 Install on Ubuntu 20.04. For installing Anaconda, we have lots of specific guides on the internet. I recommend the article of Linuxize:   
 https://linuxize.com/post/how-to-install-anaconda-on-ubuntu-20-04/   
 After installation, refer to check the conda version to make sure successful installation:   
@@ -8,15 +18,19 @@ conda -V
 ```
 ### Create, activate/deactivate, remove, list virtual envs with anaconda
 a. Create conda env
+- By default:
+```
+conda create -n envname
+```
+- With specific python, packages version
 ```
 conda create -n envname python=3.7 scipy=0.15.0 
 ```
-- Choose python version suit your demand.
-- 'scipy' represents other packages we want to install in virtual environment.
-
 b. Activate/Deactivate conda env
 ```
 conda activate envname
+```
+```
 conda deactivate
 ```
 c. Remove conda env
@@ -28,7 +42,10 @@ d. List conda environments
 conda info --envs
 ```
 ![alt text](images/envs.png "virtual environment")   
-From now on, I highly recommend you create a virtual anaconda envs in each project
+e. List all packages installed
+```
+conda list
+```
 ## 2. OpenCV
 Install on Ubuntu 20.04
 ```
@@ -122,3 +139,8 @@ conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvi
 You could also use <strong>pip, libtorch or source </strong> up to your requirement. Then rerun your program. This worked in my case.  
 - Another solution is to create again for env with correct python, pip version or update the requirements file. Some of them are outdated or deprecated and need to be udpated with newer version.
 
+## 5. Docker
+### Installation
+### Setup builder
+### Run helloworld
+### Docker with sudo
