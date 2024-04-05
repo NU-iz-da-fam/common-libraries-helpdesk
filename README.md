@@ -13,8 +13,13 @@ b. Cons:
 Install on Ubuntu 20.04. For installing Anaconda, we have lots of specific guides on the internet. I recommend the article of Linuxize:   
 https://linuxize.com/post/how-to-install-anaconda-on-ubuntu-20-04/   
 After installation, refer to check the conda version to make sure successful installation:   
+- Sample result: **conda 4.8.2**
 ```
 conda -V
+```
+- If you'd prefer that conda's base environment not be activated on startup, set the **auto_activate_base** parameter to false.
+```
+conda config --set auto_activate_base false
 ```
 ### Create, activate/deactivate, remove, list virtual envs with anaconda
 a. Create conda env
@@ -24,7 +29,7 @@ conda create -n envname
 ```
 - With specific python, packages version
 ```
-conda create -n envname python=3.7 scipy=0.15.0 
+conda create -n envname python=3.8 scipy=0.15.0 
 ```
 b. Activate/Deactivate conda env
 ```
