@@ -51,7 +51,31 @@ e. List all packages installed
 ```
 conda list
 ```
-## 2. OpenCV
+## 2. Python Venv
+- This package is to create an isolated environment for python.
+### Installation
+- Need to specify a python version to install venv. For instance, to install with python3.8 
+```
+sudo apt install python3.8-venv
+```
+### Create and activate
+- Create an environment
+```
+python3 -m venv env_name 
+```
+- Activate environment
+```
+source env_name/bin/activate
+```
+#### Difference between Conda and Pip
+- Check this article for reference: https://www.anaconda.com/blog/understanding-conda-and-pip
+- In summary, the table below shows main differences:   
+![alt text](images/conda_pip.png "Conda and Pip")
+
+#### Conda and Venv
+- https://mindthevirt.com/venv-vs-conda-choosing-the-right-python-environment-manager-for-you/
+- Use venv if your project is built on Python only, otherwise choose Conda for cross-platform projects.
+## 3. OpenCV
 Install on Ubuntu 20.04
 ```
 sudo apt update
@@ -93,7 +117,7 @@ conda install -c conda-forge opencv
 python3.7 -c "import cv2; print(cv2.__version__)"
 ```
 
-## 3. TensorFlow
+## 4. TensorFlow
 Of courses, we should refer the official link on tensorflow website. In this guideline, try to solve some problems facing after installation.   
 Link: https://www.tensorflow.org/install/pip   
 - To check if tensorflow is installed properly, use the command below. Just make sure you use the correct python version.
@@ -116,7 +140,7 @@ sudo cp [cuda_nvvm_dir] [your_current_working_dir]
 nvcc --version
 ```
 For reference link: https://stackoverflow.com/questions/72499414/i-got-an-error-about-error-cant-find-libdevice-directory-cuda-dir-nvvm-libd   
-## 4. PyTorch 
+## 5. PyTorch 
 For your reference, I recommend this link: https://varhowto.com/install-pytorch-cuda-10-2/    
 After installation, you should check the if Pytorch has been successfully installed
 ```
@@ -144,7 +168,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvi
 You could also use <strong>pip, libtorch or source </strong> up to your requirement. Then rerun your program. This worked in my case.  
 - Another solution is to create again for env with correct python, pip version or update the requirements file. Some of them are outdated or deprecated and need to be udpated with newer version.
 
-## 5. Docker
+## 6. Docker
 ### Installation
 ### Setup builder
 ### Run helloworld
