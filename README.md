@@ -77,10 +77,21 @@ source env_name/bin/activate
 - Use venv if your project is built on Python only, otherwise choose Conda for cross-platform projects.
 ## 3. OpenCV
 Install on Ubuntu 20.04
-```
-sudo apt update
-sudo apt install libopencv-dev python3-opencv
-```
+- With pip3,
+  + By default:
+  ```
+  pip3 install opencv-python
+  ```
+  + With specific {version}
+  ```
+  pip3 install opencv-python=={version}
+  ```
+- From official Ubuntu repositories:
+  ```
+  sudo apt update
+  sudo apt install libopencv-dev python3-opencv
+  ```
+
 After installing, if default python version and python version supported by OpenCV are different, this will lead to a problem   
 <strong>Error: ModuleNotFoundError: No module named 'cv2' </strong>. To solve this, check your python version first. Open terminal.
 ```
@@ -97,11 +108,7 @@ python3.7 -c "import cv2; print(cv2.__version__)"
 #### Alias to set specific python version as default
 If you use OpenCV many times, you will need to set python version supported by OpenCV as default. To do this with example <strong>python3.7</strong>, open .bashrc file
 ```
-sudo gedit ~/.bashrc
-```
-At the end of file. Type the command and then Save. <strong>DONE</strong>
-```
-alias python=python3.7
+echo "alias python==python3.7" >> ~/.bashrc
 ```
 If installing OpenCV with Anaconda, should consider combination of python3.7 and openCV. Because sometimes, python3.8 faces the error <strong>CV2:ModuleNotFound</strong>.
 - You could check directly here: https://saturncloud.io/blog/anaconda-solving-the-cannot-import-cv2-issue-even-though-opencv-is-installed-how-to-install-opencv3-for-python3/
@@ -167,9 +174,3 @@ conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvi
 ```
 You could also use <strong>pip, libtorch or source </strong> up to your requirement. Then rerun your program. This worked in my case.  
 - Another solution is to create again for env with correct python, pip version or update the requirements file. Some of them are outdated or deprecated and need to be udpated with newer version.
-
-## 6. Docker
-### Installation
-### Setup builder
-### Run helloworld
-### Docker with sudo
