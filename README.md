@@ -68,7 +68,7 @@ python3 -m venv env_name
 source env_name/bin/activate
 ```
 #### Difference between Conda and Pip
-- Check this article for reference: https://www.anaconda.com/blog/understanding-conda-and-pip
+- Check this article for reference: [Understanding Conda and pip](https://www.anaconda.com/blog/understanding-conda-and-pip)
 - In summary, the table below shows main differences:   
 ![alt text](images/conda_pip.png "Conda and Pip")
 
@@ -106,25 +106,27 @@ In this case, test with other python version, assumed we have version 3.7. Use b
 python3.7 -c "import cv2; print(cv2.__version__)"
 ```
 #### Alias to set specific python version as default
-If you use OpenCV many times, you will need to set python version supported by OpenCV as default. To do this with example <strong>python3.7</strong>, open .bashrc file
+- Open terminal, type:
 ```
 echo "alias python==python3.7" >> ~/.bashrc
 ```
-If installing OpenCV with Anaconda, should consider combination of python3.7 and openCV. Because sometimes, python3.8 faces the error <strong>CV2:ModuleNotFound</strong>.
-- You could check directly here: https://saturncloud.io/blog/anaconda-solving-the-cannot-import-cv2-issue-even-though-opencv-is-installed-how-to-install-opencv3-for-python3/
+## 4. CUDA toolkit (#nvidia-smi cuda) and cuDNN
+- Tested OS: Ubuntu 20.04
+- Full instruction to Install [cuda and cuDNN](https://github.com/ashutoshIITK/install_cuda_cudnn_ubuntu_20).
+- When Done, open terminal, export path with your {cuda-version} to *~/.basrhc*
 ```
-conda create -n opencv_env python=3.7
-conda activate opencv_env
+echo 'export PATH=/usr/local/cuda-{cuda-version}/bin:$PATH' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-{cuda-version}/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 ```
+- Check cuda path
 ```
-conda install -c conda-forge opencv 
+which nvcc
 ```
-- Check if openCV has been installed properly.   
+- Check Cuda Toolkit version
 ```
-python3.7 -c "import cv2; print(cv2.__version__)"
+nvcc --version
 ```
-
-## 4. TensorFlow
+## 5. TensorFlow
 Of courses, we should refer the official link on tensorflow website. In this guideline, try to solve some problems facing after installation.   
 Link: https://www.tensorflow.org/install/pip   
 - To check if tensorflow is installed properly, use the command below. Just make sure you use the correct python version.
@@ -142,12 +144,10 @@ whereis cuda
 ```
 sudo cp [cuda_nvvm_dir] [your_current_working_dir]
 ```
-- Check Cuda Toolkit version
-```
-nvcc --version
-```
 For reference link: https://stackoverflow.com/questions/72499414/i-got-an-error-about-error-cant-find-libdevice-directory-cuda-dir-nvvm-libd   
-## 5. PyTorch 
+#### Error: do not find Cuda drivers
+- Install cuda toolkit with above guide. Ensure the compatibility of tensorflow version and cuda toolkit version.
+## 6. PyTorch 
 For your reference, I recommend this link: https://varhowto.com/install-pytorch-cuda-10-2/    
 After installation, you should check the if Pytorch has been successfully installed
 ```
