@@ -10,8 +10,9 @@ b. Cons:
 - Take lots of disk space
 
 ### Installation
-Install on Ubuntu 20.04. For installing Anaconda, we have lots of specific guides on the internet. I recommend the article of Linuxize:   
-https://linuxize.com/post/how-to-install-anaconda-on-ubuntu-20-04/   
+Install on Ubuntu 20.04. For installing Anaconda:
+- In [main Anaconda website](https://docs.anaconda.com/free/anaconda/install/linux/) (recommended)
+- Article of Linuxize:  [install-anaconda-ubuntu-20.04](https://linuxize.com/post/how-to-install-anaconda-on-ubuntu-20-04/)   
 After installation, refer to check the conda version to make sure successful installation:   
 - Sample result: **conda 4.8.2**
 ```
@@ -73,7 +74,7 @@ source env_name/bin/activate
 ![alt text](images/conda_pip.png "Conda and Pip")
 
 #### Conda and Venv
-- https://mindthevirt.com/venv-vs-conda-choosing-the-right-python-environment-manager-for-you/
+- [Choose right python environment for you](https://mindthevirt.com/venv-vs-conda-choosing-the-right-python-environment-manager-for-you/)
 - Use venv if your project is built on Python only, otherwise choose Conda for cross-platform projects.
 ## 3. OpenCV
 Install on Ubuntu 20.04
