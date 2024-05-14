@@ -127,7 +127,26 @@ which nvcc
 ```
 nvcc --version
 ```
-## 5. TensorFlow
+## 5. TensorRT:
+- Not sure if this guide is generally correct, but it works in my case.
+- Install cuda toolkit first (mandatory). If installing with ```.run``` does not work, try to install with ```.deb```
+- ```nv-tensorrt-local-repo-2004-8.5.1-cuda-11.8_1.0-1_amd64.deb``` is compatible with cuda 11.x
+```
+os="ubuntu2004"
+tag="8.5.1-cuda-11.8"
+sudo dpkg -i nv-tensorrt-local-repo-${os}-${tag}_1.0-1_amd64.deb
+sudo cp /var/nv-tensorrt-local-repo-${os}-${tag}/*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get install tensorrt
+```
+- If you have tried many versions of tensorrt, it could cause conflicts. So, remove all other before installing.
+- Replace ${os} and ${tag} parameters 
+```
+sudo dpkg -r nv-tensorrt-local-repo-${os}-${tag}_1.0-1_amd64
+sudo dpkg --purge nv-tensorrt-local-repo-${os}-${tag}_1.0-1_amd64
+```
+- Then reinstall. Tensorrt may need ```reboot```
+## 6. TensorFlow
 Of courses, we should refer the official link on tensorflow website. In this guideline, try to solve some problems facing after installation.   
 Link: https://www.tensorflow.org/install/pip   
 - To check if tensorflow is installed properly, use the command below. Just make sure you use the correct python version.
@@ -148,7 +167,7 @@ sudo cp [cuda_nvvm_dir] [your_current_working_dir]
 For reference link: https://stackoverflow.com/questions/72499414/i-got-an-error-about-error-cant-find-libdevice-directory-cuda-dir-nvvm-libd   
 #### Error: do not find Cuda drivers
 - Install cuda toolkit with above guide. Ensure the compatibility of tensorflow version and cuda toolkit version.
-## 6. PyTorch 
+## 7. PyTorch 
 For your reference, I recommend this link: https://varhowto.com/install-pytorch-cuda-10-2/    
 After installation, you should check the if Pytorch has been successfully installed
 ```
