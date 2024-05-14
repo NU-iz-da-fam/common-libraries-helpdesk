@@ -127,6 +127,8 @@ which nvcc
 ```
 nvcc --version
 ```
+### Errors:
+- Missing [**cudaProfiler.h**](https://forums.developer.nvidia.com/t/pycuda-l4t32-6-1-install-missing-cudaprofiler-h/204834) -> Reinstall cuda toolkit with ```.run``` file
 ## 5. TensorRT:
 - Not sure if this guide is generally correct, but it works in my case.
 - Install cuda toolkit first (mandatory). If installing with ```.run``` does not work, try to install with ```.deb```
@@ -146,6 +148,8 @@ sudo dpkg -r nv-tensorrt-local-repo-${os}-${tag}_1.0-1_amd64
 sudo dpkg --purge nv-tensorrt-local-repo-${os}-${tag}_1.0-1_amd64
 ```
 - Then reinstall. Tensorrt may need ```reboot```
+### Errors:
+- Lib **libcublas.so** not found -> Reinstall cuda toolkit with ```.deb``` file 🫰
 ## 6. TensorFlow
 Of courses, we should refer the official link on tensorflow website. In this guideline, try to solve some problems facing after installation.   
 Link: https://www.tensorflow.org/install/pip   
