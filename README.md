@@ -113,7 +113,8 @@ echo "alias python==python3.7" >> ~/.bashrc
 ```
 ## 4. CUDA toolkit (#nvidia-smi cuda) and cuDNN
 - Tested OS: Ubuntu 20.04
-- Full instruction to Install [cuda and cuDNN](https://github.com/ashutoshIITK/install_cuda_cudnn_ubuntu_20).
+- Full instruction to Install [cuda and cuDNN](https://github.com/ashutoshIITK/install_cuda_cudnn_ubuntu_20). But some command lines are outdated [update Nov'2024].
+- [Nvidia-driver](https://github.com/NU-iz-da-fam/ubuntu-installation-helpdesk) should be installed before cuda and cuDNN. 
 - When Done, open terminal, export path with your {cuda-version} to *~/.basrhc*
 ```
 echo 'export PATH=/usr/local/cuda-{cuda-version}/bin:$PATH' >> ~/.bashrc
