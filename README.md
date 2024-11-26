@@ -75,15 +75,27 @@ source env_name/bin/activate
 
 #### Conda and Venv
 - [Choose right python environment for you](https://mindthevirt.com/venv-vs-conda-choosing-the-right-python-environment-manager-for-you/)
-- Use venv if your project is built on Python only, otherwise choose Conda for cross-platform projects.
+- **Use venv if your project is built on Python only, otherwise choose Conda for cross-platform projects.**
+
 ## 3. CUDA toolkit (#nvidia-smi cuda) and cuDNN
 - Tested OS: Ubuntu 20.04
 - Full instruction to Install [cuda and cuDNN](https://github.com/ashutoshIITK/install_cuda_cudnn_ubuntu_20). But some command lines are outdated [update Nov'2024].
-- [Nvidia-driver](https://github.com/NU-iz-da-fam/ubuntu-installation-helpdesk) should be installed before cuda and cuDNN. 
-- When Done, open terminal, export path with your {cuda-version} to *~/.basrhc*
+- [Nvidia-driver](https://github.com/NU-iz-da-fam/ubuntu-installation-helpdesk) should be installed before cuda and cuDNN.
+- In my case, I install cuda-11.8
+![alt text](images/cuda.png "cuda-run-file")
+```
+wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda_11.8.0_520.61.05_linux.run
+sudo sh cuda_11.8.0_520.61.05_linux.run
+```
+- When Done, open terminal, export path with your {cuda-version} to *~/.bashrc*
 ```
 echo 'export PATH=/usr/local/cuda-{cuda-version}/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-{cuda-version}/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
+```
+- Or change VERSION, run ```export_cuda.sh``` and source ```.bashrc```
+```
+bash build/export_cuda.sh
+source ~/.bashrc
 ```
 - Check cuda path
 ```
@@ -93,8 +105,10 @@ which nvcc
 ```
 nvcc --version
 ```
+![alt text](images/cuda-version.png "cuda-version")
 ### Errors:
 - Missing [**cudaProfiler.h**](https://forums.developer.nvidia.com/t/pycuda-l4t32-6-1-install-missing-cudaprofiler-h/204834) -> Reinstall cuda toolkit with ```.run``` file
+
 ## 4. TensorRT:
 - Not sure if this guide is generally correct, but it works in my case.
 - Install cuda toolkit first (mandatory). If installing with ```.run``` does not work, try to install with ```.deb```
@@ -116,6 +130,7 @@ sudo dpkg --purge nv-tensorrt-local-repo-${os}-${tag}_1.0-1_amd64
 - Then reinstall. Tensorrt may need ```reboot```
 ### Errors:
 - Lib **libcublas.so** not found -> Reinstall cuda toolkit with ```.deb``` file 🫰
+
 ## 5. TensorFlow
 - People prefer installing tensorflow in a virtual environment rather than installing directly in native OS. 
 - Install python venv.
