@@ -76,42 +76,7 @@ source env_name/bin/activate
 #### Conda and Venv
 - [Choose right python environment for you](https://mindthevirt.com/venv-vs-conda-choosing-the-right-python-environment-manager-for-you/)
 - Use venv if your project is built on Python only, otherwise choose Conda for cross-platform projects.
-## 3. OpenCV
-Install on Ubuntu 20.04
-- With pip3,
-  + By default:
-  ```
-  pip3 install opencv-python
-  ```
-  + With specific {version}
-  ```
-  pip3 install opencv-python=={version}
-  ```
-- From official Ubuntu repositories:
-  ```
-  sudo apt update
-  sudo apt install libopencv-dev python3-opencv
-  ```
-
-After installing, if default python version and python version supported by OpenCV are different, this will lead to a problem   
-<strong>Error: ModuleNotFoundError: No module named 'cv2' </strong>. To solve this, check your python version first. Open terminal.
-```
-python3 --version
-```
-Check the python version supported by OpenCV using the command below. If there are more than 1 python version, maybe your opencv was installed with the left python version.
-```
-ls /usr/bin/python*
-```
-In this case, test with other python version, assumed we have version 3.7. Use below command and you will see OpenCV version. 
-```
-python3.7 -c "import cv2; print(cv2.__version__)"
-```
-#### Alias to set specific python version as default
-- Open terminal, type:
-```
-echo "alias python==python3.7" >> ~/.bashrc
-```
-## 4. CUDA toolkit (#nvidia-smi cuda) and cuDNN
+## 3. CUDA toolkit (#nvidia-smi cuda) and cuDNN
 - Tested OS: Ubuntu 20.04
 - Full instruction to Install [cuda and cuDNN](https://github.com/ashutoshIITK/install_cuda_cudnn_ubuntu_20). But some command lines are outdated [update Nov'2024].
 - [Nvidia-driver](https://github.com/NU-iz-da-fam/ubuntu-installation-helpdesk) should be installed before cuda and cuDNN. 
@@ -130,7 +95,7 @@ nvcc --version
 ```
 ### Errors:
 - Missing [**cudaProfiler.h**](https://forums.developer.nvidia.com/t/pycuda-l4t32-6-1-install-missing-cudaprofiler-h/204834) -> Reinstall cuda toolkit with ```.run``` file
-## 5. TensorRT:
+## 4. TensorRT:
 - Not sure if this guide is generally correct, but it works in my case.
 - Install cuda toolkit first (mandatory). If installing with ```.run``` does not work, try to install with ```.deb```
 - ```nv-tensorrt-local-repo-2004-8.5.1-cuda-11.8_1.0-1_amd64.deb``` is compatible with cuda 11.x
@@ -151,9 +116,24 @@ sudo dpkg --purge nv-tensorrt-local-repo-${os}-${tag}_1.0-1_amd64
 - Then reinstall. Tensorrt may need ```reboot```
 ### Errors:
 - Lib **libcublas.so** not found -> Reinstall cuda toolkit with ```.deb``` file 🫰
-## 6. TensorFlow
-Of courses, we should refer the official link on tensorflow website. In this guideline, try to solve some problems facing after installation.   
-Link: https://www.tensorflow.org/install/pip   
+## 5. TensorFlow
+- People prefer installing tensorflow in a virtual environment rather than installing directly in native OS. 
+- Install python venv.
+- Create, activate virtual environment.
+```
+python3 -m venv tfenv
+source tfenv/bin/activate
+```
+- Upgrade pip version
+```
+pip install --upgrade pip
+```
+- Check compatible version of [tensorflow, cuda and cudnn](https://www.tensorflow.org/install/source#gpu) before installing.
+![alt text](images/compatible_versions.png "compatible_version")
+- Install [tensorflow GPU](https://www.tensorflow.org/install/pip). Assume my system uses ```cuda==11.8, cudnn==8.6. So I install tensorflow==2.12.0```
+```
+pip install tensorflow==2.12.0
+```
 - To check if tensorflow is installed properly, use the command below. Just make sure you use the correct python version.
 ```
 python3.8 -c "import tensorflow as tf; print(tf.__version__)"
