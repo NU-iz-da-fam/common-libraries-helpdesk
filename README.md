@@ -79,7 +79,8 @@ source env_name/bin/activate
 
 ## 3. CUDA toolkit (#nvidia-smi cuda) and cuDNN
 - Tested OS: Ubuntu 20.04
-- Full instruction to Install [cuda and cuDNN](https://github.com/ashutoshIITK/install_cuda_cudnn_ubuntu_20). But some command lines are outdated [update Nov'2024].
+- Full instruction to Install [cuda and cuDNN](https://github.com/ashutoshIITK/install_cuda_cudnn_ubuntu_20). But some command lines are outdated [update Nov'2024]. 
+- Link to download [cuda-toolkit-11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=runfile_local)
 - After all commands of above repos, for cuDNN, need to update ```cudnn_version.h```
     ```
     sudo cp include/cudnn_version.h /usr/local/cuda-11.8/targets/x86_64-linux/include/
